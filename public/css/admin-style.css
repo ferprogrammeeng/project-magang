@@ -1,0 +1,74 @@
+::-webkit-scrollbar{
+  display: none;
+}
+
+.dashboard .row .col{
+  margin: .5rem 1rem;
+  padding: 0;
+}
+
+.dashboard .row .col div:first-child{
+  padding: 1rem 0 0;
+  font-size: 3rem;
+}
+
+.dashboard .row .col div:last-child{
+  background: #e0b010;
+}
+
+.table-wrapper{
+  --table-border: 1px solid black;
+  max-height: 65vh;
+  border: var(--table-border);
+}
+
+.table-wrapper .head{
+  background: lightgreen;
+}
+
+.table-wrapper .body{
+  overflow: hidden auto;
+  background: lightblue;
+}
+
+.table-wrapper .col{
+  line-height: 1.5rem;
+  background: var(--status-color);
+  display: flex;
+  align-items: center;
+}
+
+.table-wrapper .head .row,
+.table-wrapper .body .row:not(:last-child){
+  border-bottom: var(--table-border);
+}
+
+.table-wrapper .head .col,
+.table-wrapper .body .col:not(:nth-child(2),:nth-child(3)){
+  justify-content: center;
+  text-align: center;
+}
+
+.table-wrapper .col:not(:last-child){
+  border-right: var(--table-border);
+}
+
+.col[class*=bg]:hover:after{
+  content: "Lihat Detail";
+  background: yellow;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main-footer{
+  position: fixed;
+  bottom: 0;
+}

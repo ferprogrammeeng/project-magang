@@ -1,0 +1,31 @@
+body{
+  background: #88e;
+}
+
+div.offcanvas{
+  background: #44a;
+  width: 35% !important;
+}
+
+main#main{
+  max-width: 800px;
+  background: #009;
+}
+
+form{
+  color: white;
+}
+
+form label.form-label{
+  font-size: 1.1em;
+}
+
+.modal-body .col{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.form-control::-webkit-file-upload-button{
+  display: none;
+}
