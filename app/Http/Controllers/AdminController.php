@@ -172,6 +172,9 @@ class AdminController extends Controller
       $this->setAlert('error', '#f7dada', 'Update status gagal!');
     }
 
+    if ($request->status == 0) return to_route('Admin.permohonan')
+      ->with('alert', $this->alert);
+
     return to_route('Admin.permohonan-detail', [ 'id' => $request->id ])
       ->with('alert', $this->alert);
   }
@@ -229,7 +232,8 @@ class AdminController extends Controller
   }
 
 
-  private function setAlert($type, $color, $msg) {
+  private function setAlert($type, $color, $msg)
+  {
     $this->alert = compact('type', 'color', 'msg');
   }
 }

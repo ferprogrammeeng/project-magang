@@ -6,13 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-  /**
-   * Run the migrations.
-   *
-   * @return void
-   */
-
-   
   public function up()
   {
     Schema::create('permohonans', function (Blueprint $table) {
@@ -31,15 +24,11 @@ return new class extends Migration
       $table->string('email', 50)->default();
       $table->string('no_hp', 20)->default();
       $table->tinyInteger('status')->default(1);
+      $table->string('riwayat', 255)->default();
       $table->timestamps();
     });
   }
 
-  /**
-   * Reverse the migrations.
-   *
-   * @return void
-   */
   public function down()
   {
     Schema::dropIfExists('permohonans');

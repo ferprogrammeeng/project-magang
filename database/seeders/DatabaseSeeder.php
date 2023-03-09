@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
 {
   public function run()
   {
-    Permohonan::factory(20)->create();
+    Permohonan::factory(5)->create();
 
     Admin::create([
       'username' => 'iqbal',

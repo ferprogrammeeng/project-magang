@@ -15,7 +15,7 @@ detailBtn.forEach(btn => {
     document.location.href = `${baseURL}/${id}`;
   };
 });
-console.log(select.value);
+
 modalBtn.onclick = () => {
   status.forEach(s => s.value = select.value)
 }

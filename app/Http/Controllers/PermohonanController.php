@@ -14,17 +14,6 @@ class PermohonanController extends Controller
   private $alert;
 
   /**
-   * Tampilkan form untuk membuat permohonan baru
-   *
-   * @return Illuminate\Http\Response
-   */
-  public function create()
-  {
-    return view('permohonan.form');
-  }
-
-
-  /**
    * Simpan data ke database
    *
    * @param  App\Http\Requests\PermohonanRequest $request
@@ -76,19 +65,6 @@ class PermohonanController extends Controller
     }
     
     return to_route('Permohonan.form')->with('alert', $this->alert);
-  }
-
-
-  /**
-   * Tampilkan halaman cek resi permohonan
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function resi()
-  {
-    $data = Permohonan::where('id', '>', 20)->get();
-    $json = json_decode($data[0]['riwayat']);
-    return view('permohonan.resi');
   }
 
 

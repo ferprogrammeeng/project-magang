@@ -22,6 +22,9 @@ class PermohonanFactory extends Factory
       'email' => fake()->unique()->safeEmail(),
       'no_hp' => fake()->phoneNumber(),
       'status' => mt_rand(0,4),
+      'riwayat' => json_encode([
+        'Permohonan dibuat' => date('d-m-Y')
+      ])
     ];
   }
 }
