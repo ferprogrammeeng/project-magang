@@ -1,7 +1,6 @@
 const dashboardBtn = document.querySelectorAll('.dashboard .row > a');
 const detailBtn = document.querySelectorAll('.col[class*=bg]');
-const modalBtn = document.querySelector('button[data-target="#updateModal"]');
-const modalDitolakBtn = document.querySelector('button[data-target="#updateDitolakModal"]');
+const modalBtn = document.querySelector('button[data-target^="#update"]');
 const select = document.querySelector('select[name=status]');
 const status = document.querySelectorAll('form input[name=status]');
 
@@ -17,21 +16,17 @@ detailBtn.forEach(btn => {
 });
 
 modalBtn.onclick = () => {
-  status.forEach(s => s.value = select.value)
-}
-modalDitolakBtn.onclick = () => {
-  status.forEach(s => s.value = select.value)
+  status.forEach(s => (s.value = select.value));
 }
 
 
 function changeUpdateBtn(el) {
-  if (el.value == 0) {
-    modalBtn.classList.add('d-none');
-    modalDitolakBtn.classList.remove('d-none');
-  } else {
-    modalBtn.classList.remove('d-none');
-    modalDitolakBtn.classList.add('d-none');
-  }
+  const target = ({
+    0: '#updateDitolakModal',
+    3: '#updateBimtekModal'
+  })[el.value] ?? '#updateModal';
+
+  modalBtn.dataset.target = target;
 }
 
 

@@ -52,13 +52,10 @@
         </select>
       </div>
       <div>
-        @if ($permohonan->status == 0)
-          <button class="btn btn-primary w-100" type="submit" data-toggle="modal" data-target="#updateDitolakModal">Update</button>
-          <button class="btn btn-primary w-100 d-none" type="submit" data-toggle="modal" data-target="#updateModal">Update</button>
-        @else
-          <button class="btn btn-primary w-100 d-none" type="submit" data-toggle="modal" data-target="#updateDitolakModal">Update</button>
-          <button class="btn btn-primary w-100" type="submit" data-toggle="modal" data-target="#updateModal">Update</button>
-        @endif
+        <button class="btn btn-primary w-100" type="submit"
+          data-toggle="modal" data-target="#update{{ $target }}Modal">
+          Update
+        </button>
       </div>
     </div>
   </div>
@@ -115,5 +112,34 @@
   </div>
 </div>
 <!-- modal ditolak END -->
+
+
+<!-- modal bimtek -->
+<div class="modal fade" id="updateBimtekModal" data-backdrop="static" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Yakin ingin mengupdate</h5>
+      </div>
+      <form action="{{ route('Admin.permohonan-update', $permohonan->id) }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="id" value="{{ $permohonan->id }}" />
+        <input type="hidden" name="nama_wakil" value="{{ $permohonan->nama_wakil }}" />
+        <input type="hidden" name="email" value="{{ $permohonan->email }}" />
+        <input type="hidden" name="no_resi" value="{{ $permohonan->no_resi }}" />
+        <input type="hidden" name="status" />
+        <div class="modal-body">
+          <label class="form-label">Upload berita acara</label>
+          <input class="form-control" type="file" name="berita_acara" required />
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Update</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- modal bimtek END -->
 
 </x-layout>

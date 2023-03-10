@@ -15,5 +15,7 @@
 
 <p>Demikian pesan ini kami sampaikan. Atas perhatian saudara, kami mengucapkan terima kasih.</p>
 
+<p>Berita acara dapat Anda unduh pada lampiran di bawah.</p>
+
 </body>
 </html>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\Permohonan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Dropbox\Client;
 
 class AdminController extends Controller
@@ -93,6 +94,11 @@ class AdminController extends Controller
       'ditolak', 'belum ditinjau', 'proses', 'ready bimtek', 'ttd'
     ][$data['permohonan']->status];
     $data['color'] = ['danger','warning','primary','success','white'];
+    $data['target'] = match($data['permohonan']->status) {
+      0 => 'Ditolak',
+      3 => 'Bimtek',
+      default => ''
+    };
 
     return view('admin.permohonan-detail', $data);
   }
@@ -150,8 +156,28 @@ class AdminController extends Controller
         'resi' => '',
         'message' => isset($request->message) ? $request->message : '',
       ];
+
       if ($request->status == 0) {
         $email_prop['msg'] = $request->message;
+      } elseif ($request->status == 3) {
+        $file = $request->file('berita_acara');
+
+        $disk = Storage::build([
+          'driver' => 'local',
+          'root' => "berita-acara/{}$request->no_resi}",
+        ]);
+
+        $file = file_get_contents($file->getRealPath());
+        $disk->put('berita-acara.pdf', $file);
+
+        // kirim email
+        $email_prop = [
+          'waktu'   => $this->waktu((int) date('G')),
+          'd_time'  => $this->date_time(),
+          'name'    => $request['nama_wakil'],
+          'no_resi' => $request->no_resi,
+          'attach_file' => true,
+        ];
       }
 
       $email_view = [
