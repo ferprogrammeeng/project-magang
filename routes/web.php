@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::controller(PermohonanController::class)
-->prefix('permohonan')
-->name('Permohonan.')->group(function() {
+->prefix('permohonan')->name('Permohonan.')
+->group(function() {
   Route::view('', 'permohonan.form')->name('form');
   Route::view('add', 'permohonan.form')->name('form');
   Route::post('add', 'store')->name('tambah');
@@ -19,17 +19,21 @@ Route::controller(PermohonanController::class)
 });
 
 Route::controller(AdminController::class)
-->prefix('admin')
-->name('Admin.')->group(function() {
+->prefix('admin')->name('Admin.')
+->group(function() {
   Route::get('', 'index')->name('dashboard');
   Route::get('dashboard', 'index')->name('dashboard');
   Route::get('login', 'form')->name('form');
   Route::post('login', 'login')->name('login');
   Route::get('logout', 'logout')->name('logout');
-  Route::get('permohonan', 'list')->name('permohonan');
-  Route::get('permohonan/{filter}', 'list')->name('permohonan-list');
-  Route::get('permohonan/{id}', 'detail')->name('permohonan-detail');
-  Route::post('permohonan/{id}/update', 'update')->name('permohonan-update');
+
+  Route::prefix('permohonan')->name('permohonan')
+  ->group(function() {
+    Route::get('', 'list');
+    Route::get('{filter}', 'list')->name('-list');
+    Route::get('{id}', 'detail')->name('-detail');
+    Route::post('{id}/update', 'update')->name('-update');
+  });
 });
 
 Route::any('/', function(){

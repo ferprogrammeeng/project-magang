@@ -21,7 +21,7 @@ class Controller extends BaseController
    * @param  string $email_address
    * @param  string $view
    * @param  array  $email_prop
-   * @return void
+   * @return \Illuminate\Mail\SentMessage | boolean
    */
   protected function sendMail(string $email_address, string $view, array $email_prop)
   {
