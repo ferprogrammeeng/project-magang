@@ -49,13 +49,13 @@ class AdminController extends Controller
       'proses' => 2,
       'ready bimtek' => 3,
       'ttd' => 4,
-      'ba_siap' => 5,
-      'ba_diambil' => 6,
+      'siap' => 5,
+      'diambil' => 6,
     ];
 
     $data['filter'] = ($filter = str_replace('_', ' ', $filter));
     $data['status'] = [
-      // [ 'danger',  'Ditolak' ],
+      [ 'danger',  'Ditolak' ],
       [ 'warning', 'Belum ditinjau' ],
       [ 'primary', 'Proses pembuatan' ],
       [ 'success', 'Ready bimtek' ],
@@ -94,7 +94,7 @@ class AdminController extends Controller
 
     $data['permohonan'] = Permohonan::where('id', $id)->get()->first();
     $data['filter'] = [
-      'ditolak', 'belum ditinjau', 'proses', 'ready bimtek', 'ttd', 'ba siap', 'ba diambil'
+      'ditolak', 'belum ditinjau', 'proses', 'ready bimtek', 'ttd', 'siap', 'diambil'
     ][$data['permohonan']->status];
 
     $data['color'] = ['danger', 'warning', 'primary', 'success', 'info', 'white', 'secondary'];

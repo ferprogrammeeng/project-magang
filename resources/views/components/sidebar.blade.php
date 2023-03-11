@@ -44,14 +44,14 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{ route('Admin.permohonan') . '/ba_siap' }}" class="nav-link
-          {{ trim($active) === 'ba siap' ? 'active disabled' : '' }}">
+        <a href="{{ route('Admin.permohonan') . '/siap' }}" class="nav-link
+          {{ trim($active) === 'siap' ? 'active disabled' : '' }}">
           Berita Acara Siap
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{ route('Admin.permohonan') . '/ba_diambil' }}" class="nav-link
-          {{ trim($active) === 'ba diambil' ? 'active disabled' : '' }}">
+        <a href="{{ route('Admin.permohonan') . '/diambil' }}" class="nav-link
+          {{ trim($active) === 'diambil' ? 'active disabled' : '' }}">
           Berita Acara Diambil
         </a>
       </li>

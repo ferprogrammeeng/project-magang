@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
 
 <main class="container dashboard" id="main">
-  <div class="row row-cols-md-4 row-cols-sm-2 d-flex justify-content-around">
+  <div class="row row-cols-md-4 row-cols-sm-2 d-flex">
     <a href="{{ route('Admin.permohonan-list', '') }}">
       <div><i class="bi bi-list-task"></i></div>
       <div>Daftar permohonan</div>
@@ -29,6 +29,14 @@
     <a href="{{ route('Admin.permohonan-list', 'ttd') }}">
       <div><i class="bi bi-pen"></i></div>
       <div>Proses TTD Kadis</div>
+    </a>
+    <a href="{{ route('Admin.permohonan-list', 'siap') }}">
+      <div><i class="bi bi-pen"></i></div>
+      <div>Berita acara siap</div>
+    </a>
+    <a href="{{ route('Admin.permohonan-list', 'diambil') }}">
+      <div><i class="bi bi-pen"></i></div>
+      <div>Berita acara diambil</div>
     </a>
   </div>
 </main>

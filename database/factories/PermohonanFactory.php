@@ -21,7 +21,7 @@ class PermohonanFactory extends Factory
       'nip_wakil' => mt_rand(30,35) . mt_rand(1300,1500) . date('dmy') . mt_rand(1000,1100),
       'email' => fake()->unique()->safeEmail(),
       'no_hp' => fake()->phoneNumber(),
-      'status' => mt_rand(0,4),
+      'status' => mt_rand(0,6),
       'riwayat' => json_encode([
         'Permohonan dibuat' => date('d-m-Y')
       ])
