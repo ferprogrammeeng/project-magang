@@ -19,12 +19,6 @@
           Daftar Permohonan
         </a>
       </li>
-      <!--li class="nav-item">
-        <a href="{{ route('Admin.permohonan') . '/ditolak' }}" class="nav-link
-          {{ trim($active) === 'ditolak' ? 'active disabled' : '' }}">
-          Permohonan ditolak
-        </a>
-      </li-->
       <li class="nav-item">
         <a href="{{ route('Admin.permohonan') . '/belum_ditinjau' }}" class="nav-link
           {{ trim($active) === 'belum ditinjau' ? 'active disabled' : '' }}">
@@ -47,6 +41,18 @@
         <a href="{{ route('Admin.permohonan') . '/ttd' }}" class="nav-link
           {{ trim($active) === 'ttd' ? 'active disabled' : '' }}">
           Proses TTD Kadis
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('Admin.permohonan') . '/ba_siap' }}" class="nav-link
+          {{ trim($active) === 'ba siap' ? 'active disabled' : '' }}">
+          Berita Acara Siap
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('Admin.permohonan') . '/ba_diambil' }}" class="nav-link
+          {{ trim($active) === 'ba diambil' ? 'active disabled' : '' }}">
+          Berita Acara Diambil
         </a>
       </li>
     </ul>

@@ -49,6 +49,8 @@
           <option value="2" {{ $permohonan->status === 2 ? 'selected' : '' }}>Proses pembuatan</option>
           <option value="3" {{ $permohonan->status === 3 ? 'selected' : '' }}>Ready bimtek</option>
           <option value="4" {{ $permohonan->status === 4 ? 'selected' : '' }}>Proses TTD</option>
+          <option value="5" {{ $permohonan->status === 5 ? 'selected' : '' }}>Berita acara siap</option>
+          <option value="6" {{ $permohonan->status === 6 ? 'selected' : '' }}>Berita acara diambil</option>
         </select>
       </div>
       <div>

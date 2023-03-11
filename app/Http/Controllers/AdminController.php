@@ -44,29 +44,32 @@ class AdminController extends Controller
     }
 
     $filters = [
-      'ditolak' => 0,
+      // 'ditolak' => 0,
       'belum ditinjau' => 1,
       'proses' => 2,
       'ready bimtek' => 3,
       'ttd' => 4,
+      'ba_siap' => 5,
+      'ba_diambil' => 6,
     ];
 
     $data['filter'] = ($filter = str_replace('_', ' ', $filter));
     $data['status'] = [
-      [ 'danger',  'Ditolak' ],
+      // [ 'danger',  'Ditolak' ],
       [ 'warning', 'Belum ditinjau' ],
       [ 'primary', 'Proses pembuatan' ],
       [ 'success', 'Ready bimtek' ],
-      [ 'white',   'Proses TTD Kadis' ],
+      [ 'info',   'Proses TTD Kadis' ],
+      [ 'white',   'Berita acara siap' ],
+      [ 'secondary',   'Berita acara diambil' ],
     ];
 
     // http://.../admin/permohonan
     if ($filter === '') {
-      // $data['permohonan'] = Permohonan::all();
       $data['permohonan'] = Permohonan::whereNot('status', '0')->get();
       return view('admin.permohonan', $data);
 
-    // http://.../admin/permohonan/123
+    // .../admin/permohonan/123
     } else if ((int)$filter !== 0) {
       return $this->detail($filter);
     }
@@ -91,9 +94,10 @@ class AdminController extends Controller
 
     $data['permohonan'] = Permohonan::where('id', $id)->get()->first();
     $data['filter'] = [
-      'ditolak', 'belum ditinjau', 'proses', 'ready bimtek', 'ttd'
+      'ditolak', 'belum ditinjau', 'proses', 'ready bimtek', 'ttd', 'ba siap', 'ba diambil'
     ][$data['permohonan']->status];
-    $data['color'] = ['danger','warning','primary','success','white'];
+
+    $data['color'] = ['danger', 'warning', 'primary', 'success', 'info', 'white', 'secondary'];
     $data['target'] = match($data['permohonan']->status) {
       0 => 'Ditolak',
       3 => 'Bimtek',
@@ -133,12 +137,14 @@ class AdminController extends Controller
       'Permohonan dibuat',
       'Permohonan diterima',
       'Ready bimtek',
-      'Permohonan diambil',
+      'Ditandatangani Kadis',
+      'Berita acara siap',
+      'Berita acara diambil',
     ];
 
     $permohonan = Permohonan::where('id', $request->id);
-    $riwayat = $permohonan->get()->first()['riwayat'];
-    $riwayat = json_decode($riwayat);
+    $riwayat = json_encode($permohonan->get()->first()['riwayat']);
+
     $status_update = $status[$request->status];
     $riwayat->$status_update = date('d-m-Y', mktime(0));
 
@@ -159,7 +165,7 @@ class AdminController extends Controller
 
       if ($request->status == 0) {
         $email_prop['msg'] = $request->message;
-      } elseif ($request->status == 3) {
+      } elseif ($request->status == 5) {
         $file = $request->file('berita_acara');
 
         $disk = Storage::build([
@@ -184,6 +190,7 @@ class AdminController extends Controller
         '0' => 'ditolak',
         '2' => 'proses',
         '3' => 'ready_bimtek',
+        '5' => 'ba_siap',
       ][$request->status] ?? '';
 
       if ($email_view !== '') {

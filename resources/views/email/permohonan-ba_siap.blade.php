@@ -11,9 +11,11 @@
 
 <h3>Selamat {{ $waktu }}, {{ $name }}.</h3>
 
-<p>Website yang Anda ajukan telah selesai dibuat. Silahkan datang ke kantor kami untuk pelaksanaan Bimbingan Teknis.</p>
+<p>Berita acara siap untuk diambil.</p>
 
 <p>Demikian pesan ini kami sampaikan. Atas perhatian saudara, kami mengucapkan terima kasih.</p>
+
+<p>Berita acara dapat Anda unduh pada lampiran di bawah.</p>
 
 </body>
 </html>

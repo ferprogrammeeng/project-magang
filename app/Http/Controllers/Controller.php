@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Mail\MailPermohonan;
-// use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-// use Illuminate\Foundation\Bus\DispatchesJobs;
-// use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -13,7 +10,6 @@ use Symfony\Component\Mailer\Exception\TransportException;
 class Controller extends BaseController
 {
   // use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
 
   /**
    * Kirim email
@@ -35,7 +31,7 @@ class Controller extends BaseController
   }
 
 
-  public function waktu($t)
+  protected function waktu($t)
   {
     if      ($t >=  3 && $t <=  9) return 'pagi';
     else if ($t >= 10 && $t <= 15) return 'siang';

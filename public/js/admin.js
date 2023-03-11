@@ -15,7 +15,7 @@ detailBtn.forEach(btn => {
   };
 });
 
-modalBtn.onclick = () => {
+if (modalBtn) modalBtn.onclick = () => {
   status.forEach(s => (s.value = select.value));
 }
 
