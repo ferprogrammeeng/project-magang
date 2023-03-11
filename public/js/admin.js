@@ -23,9 +23,9 @@ if (modalBtn) modalBtn.onclick = () => {
 function changeUpdateBtn(el) {
   const target = ({
     0: '#updateDitolakModal',
-    3: '#updateBimtekModal'
+    5: '#updateBASiapModal'
   })[el.value] ?? '#updateModal';
-
+console.log(target)
   modalBtn.dataset.target = target;
 }
 

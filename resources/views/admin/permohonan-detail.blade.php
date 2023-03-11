@@ -35,6 +35,15 @@
           @endfor
         @endif
       </div>
+      @if ($permohonan->status == 5)
+        <div>Lihat berita acara</div>
+        <div class="row row-cols-sm-1 row-cols-md-4">
+          <a class="col btn btn-outline-dark mx-2" target="_blank"
+            href="../../berita-acara/{{ $permohonan->no_resi }}/berita-acara.pdf">
+            Berita acara
+          </a>
+        </div>
+      @endif
     </div>
     <div class="col">
       <div>Email</div>
@@ -117,7 +126,7 @@
 
 
 <!-- modal bimtek -->
-<div class="modal fade" id="updateBimtekModal" data-backdrop="static" tabindex="-1">
+<div class="modal fade" id="updateBASiapModal" data-backdrop="static" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

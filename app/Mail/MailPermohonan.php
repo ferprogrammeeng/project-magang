@@ -23,7 +23,7 @@ class MailPermohonan extends Mailable
 
 
   // Get the attachments for the message.
-  public function attachments(): array
+  public function attachments()
   {
     if (isset($this->prop['attach_file'])) {
       $no_resi = $this->prop['no_resi'];

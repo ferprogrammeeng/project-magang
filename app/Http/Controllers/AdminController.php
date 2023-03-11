@@ -100,7 +100,7 @@ class AdminController extends Controller
     $data['color'] = ['danger', 'warning', 'primary', 'success', 'info', 'white', 'secondary'];
     $data['target'] = match($data['permohonan']->status) {
       0 => 'Ditolak',
-      3 => 'Bimtek',
+      5 => 'BASiap',
       default => ''
     };
 
@@ -143,7 +143,7 @@ class AdminController extends Controller
     ];
 
     $permohonan = Permohonan::where('id', $request->id);
-    $riwayat = json_encode($permohonan->get()->first()['riwayat']);
+    $riwayat = json_decode($permohonan->get()->first()['riwayat']);
 
     $status_update = $status[$request->status];
     $riwayat->$status_update = date('d-m-Y', mktime(0));
@@ -170,7 +170,7 @@ class AdminController extends Controller
 
         $disk = Storage::build([
           'driver' => 'local',
-          'root' => "berita-acara/{}$request->no_resi}",
+          'root' => "berita-acara/{$request->no_resi}",
         ]);
 
         $file = file_get_contents($file->getRealPath());
