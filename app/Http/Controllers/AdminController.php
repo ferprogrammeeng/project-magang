@@ -59,9 +59,9 @@ class AdminController extends Controller
       [ 'warning', 'Belum ditinjau' ],
       [ 'primary', 'Proses pembuatan' ],
       [ 'success', 'Ready bimtek' ],
-      [ 'info',   'Proses TTD Kadis' ],
-      [ 'white',   'Berita acara siap' ],
-      [ 'secondary',   'Berita acara diambil' ],
+      [ 'info',    'Proses TTD Kadis' ],
+      [ 'white',    'Berita acara siap' ],
+      [ 'secondary', 'Berita acara diambil' ],
     ];
 
     // http://.../admin/permohonan

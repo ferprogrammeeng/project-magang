@@ -7,14 +7,13 @@ const month = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
   'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 
 const statusObj = [
-  { color: 'danger',    text: 'Ditolak' },
-  { color: 'warning',   text: 'Belum ditinjau' },
-  { color: 'primary',   text: 'Diterima, berkas belum lengkap' },
-  { color: 'secondary', text: 'Lengkap, belum bisa diambil' },
-  { color: 'success',   text: 'Berkas sudah lengkap, berita acara dapat diambil' },
-  { color: 'white',     text: 'Berita acara sudah diambil' },
-  { color: 'white',     text: 'Ready bimtek' },
-  { color: 'white',     text: 'Proses TTD Kadis' },
+  { color: 'danger',  text: 'Ditolak' },
+  { color: 'warning', text: 'Belum ditinjau' },
+  { color: 'primary', text: 'Sedang dalam proses pembuatan' },
+  { color: 'success', text: 'Ready bimtek' },
+  { color: 'info',    text: 'Menunggu TTD Kadis' },
+  { color: 'white',    text: 'Berita acara siap' },
+  { color: 'secondary', text: 'Berita acara diambil' },
 ];
 
 cekResiBtn.onclick = showResi;
