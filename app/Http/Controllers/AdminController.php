@@ -103,6 +103,9 @@ class AdminController extends Controller
       5 => 'BASiap',
       default => ''
     };
+    $data['status_text'] = [
+      'Ditolak', 'Belum ditinjau', 'Proses pembuatan', 'Ready bimtek', 'Proses TTD', 'Berita acara siap', 'Berita acara diambil'
+    ];
 
     return view('admin.permohonan-detail', $data);
   }

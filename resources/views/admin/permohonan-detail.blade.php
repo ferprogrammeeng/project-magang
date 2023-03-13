@@ -53,13 +53,13 @@
       <div>Status</div>
       <div>
         <select id="status" class="form-control" name="status" onchange="changeUpdateBtn(this)">
-          <option value="0" {{ $permohonan->status === 0 ? 'selected' : '' }}>Ditolak</option>
-          <option value="1" {{ $permohonan->status === 1 ? 'selected' : '' }}>Belum ditinjau</option>
-          <option value="2" {{ $permohonan->status === 2 ? 'selected' : '' }}>Proses pembuatan</option>
-          <option value="3" {{ $permohonan->status === 3 ? 'selected' : '' }}>Ready bimtek</option>
-          <option value="4" {{ $permohonan->status === 4 ? 'selected' : '' }}>Proses TTD</option>
-          <option value="5" {{ $permohonan->status === 5 ? 'selected' : '' }}>Berita acara siap</option>
-          <option value="6" {{ $permohonan->status === 6 ? 'selected' : '' }}>Berita acara diambil</option>
+        @for ($i=0; $i<7; $i++)
+          @if ($i >= $permohonan->status)
+            <option value="{{ $i }}" {{ $permohonan->status === $i ? 'selected' : '' }}>
+              {{ $status_text[$i] }}
+            </option>
+          @endif
+        @endfor
         </select>
       </div>
       <div>
