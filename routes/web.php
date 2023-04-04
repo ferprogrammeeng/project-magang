@@ -20,6 +20,7 @@ Route::controller(PermohonanController::class)
 
 Route::controller(AdminController::class)
 ->prefix('admin')->name('Admin.')
+->middleware('auth')
 ->group(function() {
   Route::get('', 'index')->name('dashboard');
   Route::get('dashboard', 'index')->name('dashboard');
