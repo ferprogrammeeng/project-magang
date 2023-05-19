@@ -1,12 +1,9 @@
 <?php
-
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PermohonanController;
 use App\Models\Permohonan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-
 Route::controller(PermohonanController::class)
 ->prefix('permohonan')->name('Permohonan.')
 ->group(function() {
@@ -35,7 +32,6 @@ Route::controller(AdminController::class)
     Route::post('{id}/update', 'update')->name('-update');
   });
 });
-
 Route::any('/', function(){
   return '<h1>Maaf, url yang Anda masukkan tidak ditemukan</h1>';
 });

@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Admin;
 use App\Models\Permohonan;
 use Illuminate\Http\Request;
@@ -29,8 +27,6 @@ class AdminController extends Controller
     $data = [];
     return view('admin.index', $data);
   }
-
-
   /**
    * Tampilkan semua permohonan
    *

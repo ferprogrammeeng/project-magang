@@ -1,11 +1,9 @@
 <x-layout>
 <x-slot:active>dashboard</x-slot>
 <x-slot:page></x-slot>
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
-
 <main class="container dashboard" id="main">
-  <div class="row row-cols-md-4 row-cols-sm-2 d-flex">
+  <div class="row row-cols-md-5 row-cols-sm-2 d-flex">
     <a href="{{ route('Admin.permohonan-list', '') }}">
       <div><i class="bi bi-list-task"></i></div>
       <div>Daftar permohonan</div>
@@ -40,5 +38,4 @@
     </a>
   </div>
 </main>
-
 </x-layout>

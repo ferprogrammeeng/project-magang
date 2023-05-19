@@ -7,12 +7,9 @@ use App\Models\Permohonan;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Dropbox\Client;
-
-
 class PermohonanController extends Controller
 {
   private $alert;
-
   /**
    * Simpan data ke database
    *
